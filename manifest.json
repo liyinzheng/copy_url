@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+    "name": "copy_url",
+    "version": "1.0.0",
+    "description": "简单的Chrome扩展",
+    "icons": {
+        "16": "img/icon.png",
+        "48": "img/icon.png",
+        "128": "img/icon.png"
+    },
+    "browser_action": {
+        "default_icon": "img/icon.png",
+        "default_title": "我是pageAction",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["js/content-script.js"],
+        "run_at": "document_start"
+    }],
+    "permissions": [
+        "declarativeContent",
+        "notifications"
+    ],
+    "homepage_url": "http://www.liyinzheng.cn"
+}
