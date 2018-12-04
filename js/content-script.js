@@ -70,12 +70,17 @@ function getLANIP(callback) {
 }
 
 function getMyUrl() {
-    let href = window.location.href,
-        targetIp = '127.0.0.1';
-    if (href.indexOf(targetIp) > -1) {
-        getLANIP((localIp) => {
-            myUrl = href.replace(targetIp, localIp);
-        })
+    let i, targetIp,
+        href = window.location.href,
+        targetIpBox = ['127.0.0.1', 'localhost'];
+    for (i = 0; i < targetIpBox.length; i++) {
+        targetIp = targetIpBox[i];
+        if (href.indexOf(targetIp) > -1) {
+            getLANIP((localIp) => {
+                myUrl = href.replace(targetIp, localIp);
+            })
+            break;
+        }
     }
 }
 
